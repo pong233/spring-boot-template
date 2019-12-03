@@ -1,0 +1,35 @@
+server:
+  port: 8890
+
+
+
+spring:
+
+
+  # 数据库相关配置
+  datasource:
+    url: jdbc:mysql://localhost:3306/study?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+
+    # 使用hikariCP数据源，spring boot 2.x后默认的数据库连接池
+    hikari:
+      # 等待连接池分配连接的最大时长（毫秒），超过这个时长还没可用的连接则发生SQLException， 缺省:30秒
+      connection-timeout: 30000
+      # 一个连接idle状态的最大时长（毫秒），超时则被释放（retired），缺省:10分钟
+      idle-timeout: 600000
+      # 一个连接的生命时长（毫秒），超时而且没被使用则被释放（retired），缺省:30分钟，建议设置比数据库超时时长少30秒
+      max-lifetime: 1800000
+      # 连接池中允许的最大连接数。缺省值：10
+      maximum-pool-size: 15
+      minimum-idle: 5
+
+
+# mybatis相关配置
+mybatis:
+  mapper-locations: classpath:/mapper/*.xml
+  configuration:
+    # 下划线转驼峰命名映射
+    map-underscore-to-camel-case: true
