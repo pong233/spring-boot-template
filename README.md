@@ -1,5 +1,5 @@
 # spring-boot-template
-一个spring boot模板，方便以后再用
+一个spring boot模板，方便以后要用
 
 2019.12.3
 
